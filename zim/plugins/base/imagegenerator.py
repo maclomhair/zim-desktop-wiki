@@ -140,11 +140,11 @@ class ImageGeneratorModel(ImageGeneratorModelBase):
 			self.image_file.remove()
 
 	def _new_image_file(self):
-		cache_dir = self.notebook.folder.folder('_images')
+		cache_dir = self.notebook.cache_dir.folder('images')
 		if self.data:
 			content = []
 			for k, v in sorted(self.attrib.items()):
-				content.extend([k, v])
+				content.extend([k, str(v)])
 			content.append(self.data)
 			basename = hashlib.md5(''.join(content).encode()).hexdigest() + self.generator.imagefile_extension
 		else:
