@@ -165,7 +165,7 @@ class FTSIndexer(IndexerBase):
 		self.db.executescript('''
 			CREATE VIRTUAL TABLE IF NOT EXISTS pages_fts USING fts5(
 				page_content,
-				tokenize = 'unicode61 remove_diacritics 2',
+				tokenize = 'unicode61 remove_diacritics 0',
 				content = '',
 				contentless_delete = 1
 			);
