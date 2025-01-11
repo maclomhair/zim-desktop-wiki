@@ -2575,6 +2575,9 @@ class TextBuffer(TextBufferFindMixin, Gtk.TextBuffer):
 				anchor = iter.get_child_anchor() # iter may have moved
 				if isinstance(anchor, InsertedObjectAnchor):
 					if anchor.is_inline:
+						# We removed the trailing newline when we added the inline
+						# object, now we need to add it again
+						builder.data('\n')
 						anchor.dump(builder)
 						iter.forward_char()
 					else:
