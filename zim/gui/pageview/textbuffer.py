@@ -1142,6 +1142,12 @@ class TextBuffer(TextBufferFindMixin, Gtk.TextBuffer):
 
 	def insert_object_model_at_cursor(self, objecttype, model):
 		if objecttype.is_inline:
+			current_position_iter = self.get_insert_iter()
+			if current_position_iter.starts_line():
+				end_of_line_iter = current_position_iter.copy()
+				end_of_line_iter.backward_char()
+				self.delete(end_of_line_iter, current_position_iter)
+
 			self._insert_object_model_at_cursor(objecttype, model)
 		else:
 			if not self.get_insert_iter().starts_line():

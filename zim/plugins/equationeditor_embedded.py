@@ -50,6 +50,7 @@ class EquationImageObjectType(ImageGeneratorObjectType):
 	label = _('Embedded Equation') # T: menu item
 	syntax = 'latex'
 	widget_style = 'inline'
+	is_inline = True
 
 	def format_latex(self, dumper, attrib, data):
 		return ['\\begin{math}\n', data, '\n\\end{math}']
