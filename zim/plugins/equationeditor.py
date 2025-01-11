@@ -18,9 +18,10 @@ dvipngcmd = 'dvipng'
 class InsertEquationPlugin(PluginClass):
 
 	plugin_info = {
-		'name': _('Insert Equation'), # T: plugin name
+		'name': _('Insert Equation As File'), # T: plugin name
 		'description': _('''\
 This plugin provides an equation editor for zim based on latex.
+Equations are stored as separate files in the attachments folder.
 
 This is a core plugin shipping with zim.
 '''), # T: plugin description
@@ -46,7 +47,7 @@ This is a core plugin shipping with zim.
 class BackwardEquationImageObjectType(BackwardImageGeneratorObjectType):
 
 	name = 'image+equation'
-	label = _('Equation') # T: menu item
+	label = _('Equation as file') # T: menu item
 	syntax = 'latex'
 	scriptname = 'equation.tex'
 	widget_style = 'inline'

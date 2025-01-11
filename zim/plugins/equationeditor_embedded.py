@@ -19,9 +19,10 @@ dvipngcmd = 'dvipng'
 class InsertEquationPlugin(PluginClass):
 
 	plugin_info = {
-		'name': _('Insert Embedded Equation'), # T: plugin name
+		'name': _('Insert Equation'), # T: plugin name
 		'description': _('''\
 This plugin provides an equation editor for zim based on latex.
+Equations are stored in the wiki page itself.
 
 This is a core plugin shipping with zim.
 '''), # T: plugin description
@@ -47,7 +48,7 @@ This is a core plugin shipping with zim.
 class EquationImageObjectType(ImageGeneratorObjectType):
 
 	name = 'equationembedded'
-	label = _('Embedded Equation') # T: menu item
+	label = _('Equation') # T: menu item
 	syntax = 'latex'
 	widget_style = 'inline'
 	is_inline = True
