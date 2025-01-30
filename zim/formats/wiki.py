@@ -672,7 +672,8 @@ class Dumper(TextDumper):
 			strings = []
 
 		# Ensure the terminating }}} are on a new line (the regex assumes that)
-		if ''.join(strings)[-1] != '\n':
+		concatenated_strings = ''.join(strings)
+		if len(concatenated_strings) == 0 or concatenated_strings[-1] != '\n':
 			strings.append('\n')
 
 		return ['{{{', attrib['type'], ':'] + opts + ['\n'] + strings + ['}}}\n']
